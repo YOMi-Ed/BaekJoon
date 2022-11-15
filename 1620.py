@@ -1,17 +1,14 @@
 import sys
-li1 = {}
-li2 = []
-N, M = map(int,sys.stdin.readline().split())
-for _ in range(N) :
-    li1.add(sys.stdin.readline().rstrip())
-for _ in range(M) :
-    li2.append(sys.stdin.readline().rstrip())
-print(li1)
-print(li2)
-for t in li2 :
-    if t.isdigit() == True :
-        print(li1[int(t)-1])
+input = sys.stdin.readline
+li1 = {} # 딕셔너리로 만듬
+N, M = map(int,input().split())
+for i in range(N) :
+    tt = input().rstrip() #rstrip 인자로 전달된 문자를 String 오른쪽에서 제거한다.
+    li1[i+1] = tt
+    li1[tt] = i+1
+for _ in range(M): 
+    quiz = input().rstrip()
+    if quiz.isdigit() == True : #isdigit 숫자인지 확인해주는 함수
+        print(li1[int(quiz)])
     else :
-        for i in range(N) :
-            if li1[i] == t :
-                print(i+1)
+        print(li1[quiz])
