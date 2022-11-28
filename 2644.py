@@ -1,5 +1,5 @@
 # 엉망인 내 코드... 아무리해도 더 고치지 못하겠다...
-'''people = int(input())
+people = int(input())
 chon1, chon2 = map(int,input().split())
 rel = int(input())
 rel_list = [[]]
@@ -34,7 +34,7 @@ dfs(rel_list, chon1, visited)
 print("count1111 " + str(count))
 
 if chon2 not in count :
-    print(-1)'''
+    print(-1)
 
 from collections import deque
 node = int(input())
@@ -45,7 +45,6 @@ for _ in range(num):
     n, m = map(int, input().split())
     graph[n].append(m)
     graph[m].append(n)
-print(graph)
 
 visited = [False]*(node+1)
 visited[a] = True  # 촌수를 계산해야하는 사람 중 한명의 시작점을 true로
@@ -54,15 +53,12 @@ cnt = [False]*(node+1)
 
 # for i in graph[a]:
 #     dq.append(i)
-while(dq):
-    print(dq)
+while(dq): # while문 생각을 어캐 하는거지... a 기준으로 모든 촌 수를 구한다.
     k = dq.popleft()
-    print(k)
     for i in graph[k]:
         if visited[i] == False:
             dq.append(i)
             cnt[i] = cnt[k]+1
-            print(cnt)
             visited[i] = True
 if cnt[b] > 0:
     print(cnt[b])
